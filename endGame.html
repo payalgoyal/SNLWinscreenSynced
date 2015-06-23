@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		
+		<script src="js/easeljs-0.8.0.min.js"></script>
+		<script src="js/tweenjs-0.6.0.min.js"></script>
+		<script type="text/javascript" src="js/CSSPlugin.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Alfa+Slab+One|Kaushan+Script|Luckiest+Guy' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="style.css" />
+		
+		<!-- AniJS core library -->
+		<script src="js/anijs-min.js"></script> 
+  
+	   <!-- Include to use $addClass, $toggleClass or $removeClass -->
+	   <!-- <script src="http://anijs.github.io/lib/anijs/helpers/dom/anijs-helper-dom-min.js"></script> -->
+	  
+	  
+		  <!-- AniCollection.css library -->
+	    <!--  <link rel="stylesheet" href="http://anijs.github.io/lib/anicollection/anicollection.css"> -->
+		<link rel="stylesheet" type="text/css" href="animate.css" />
+	
+	</head>
+	<body onload="scriptFunction()">
+	
+	<div id="parentContainer" >
+		<div id="playerSelector">
+		<span id="WinnerInfo"></span><br />
+		<input type="button" name="RestartGame" id="RestartGame" class="circleButton" alt="Restart" value="Restart">
+		<input type="button" name="Quit" id="Quit" class="circleButton" alt="ReturnToHome" value="ReturnToHome"  >
+		<div id="selectorFooter"> 
+	</div>
+	<script>
+		var queryString = new Array();
+		if(queryString.length === 0){
+			if (window.location.search.split('?').length > 1){
+				var params = window.location.search.split('?')[1].split('&');
+				for (var i=0;i<params.length;i++){
+					var key = params[i].split('=')[0];
+					var value = decodeURIComponent(params[i].split('=')[1]);
+					queryString[key]=value;
+				}
+			}
+		}
+		document.getElementById("WinnerInfo").innerHTML = "Player"+queryString["winId"]+" wins";
+		
+		for (var i=1;i<=queryString["num"];i++){
+			var img = document.createElement("img");
+			img.setAttribute("src","images/dice_"+i+".gif")
+			img.setAttribute("id","img"+i)
+			if (i == queryString["winId"]){
+				img.setAttribute("class","winAnimation");
+			}
+			else{
+				img.setAttribute("class","loseAnimation");
+			}
+			
+			var element = document.getElementById("selectorFooter");
+			element.appendChild(img);
+			$(document).ready(function () {
+			/*$("#img1").effect("bounce", { times:10, distance:200 }, 400);*/
+		});
+		}	
+	</script>
+	
+	<script>
+		function scriptFunction() {
+			AniJS.run();
+			
+		}
+</script>
+
+
+	</div>
+</html>
