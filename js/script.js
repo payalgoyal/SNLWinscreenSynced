@@ -75,7 +75,7 @@ var createCircle = function(){
 }
 
 var teleport = [
-		 {startPoint:8,endPoint:26,xCoordinate:(6.3 * cellSize),yCoordinate:(2.7*cellSize)+topBorderOfBoard,line:4,message:"You move from 8 to 26"},
+		 {startPoint:8,endPoint:26,xCoordinate:(6.3 * cellSize),yCoordinate:(2.7*cellSize)+topBorderOfBoard,line:3,message:"You move from 8 to 26"},
 		 {startPoint:19,endPoint:38,xCoordinate:(3.3 * cellSize),yCoordinate:(3.7*cellSize)+topBorderOfBoard,line:4,message:"You move from 19 to 38"},
 		 {startPoint:21,endPoint:82,xCoordinate:(2.3 * cellSize),yCoordinate:(8.7*cellSize)+topBorderOfBoard,line:9,message:"You move from 21 to 82"},
 		 {startPoint:28,endPoint:53,xCoordinate:(8.3 * cellSize),yCoordinate:(5.7*cellSize)+topBorderOfBoard,line:6,message:"You move from 28 to 53"},
